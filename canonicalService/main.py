@@ -21,7 +21,7 @@ can_app = FastAPI()
 
 @can_app.post("/canonic")
 def canonic_img(payload: InputSchema):
-    file_key = payload["file_key"]
+    file_key = payload.file_key
     bucket = os.getenv("BUCKET_NAME")
     obj = s3.get_object(Bucket=bucket, Key=file_key)
     image_bytes = obj["Body"].read()
