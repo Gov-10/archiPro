@@ -19,7 +19,7 @@ s3 = boto3.client(
 
 can_app = FastAPI()
 
-@can_app.get("/canonic")
+@can_app.post("/canonic")
 def canonic_img(payload: InputSchema):
     file_key = payload["file_key"]
     bucket = os.getenv("BUCKET_NAME")
